@@ -1,0 +1,122 @@
+.skills {
+  padding: 80px 20px;
+  width: 100%;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Accents */
+
+
+
+
+/* Heading */
+.skills-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.skills-subtitle {
+  display: inline-block;
+  color: var(--accent-blue);
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skills h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Skill Grid */
+.skill-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Skill Item */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* background: var(--glass-bg); */
+  /* Removed background to match user snippet style more closely or can keep if needed */
+  padding: 10px;
+  border-radius: 8px;
+  opacity: 0;
+  /* Initial state for animation */
+}
+
+.skill-item:hover .skill-name {
+  color: var(--accent-blue);
+}
+
+/* Name + Percent Row */
+.skill-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.skill-percent {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Progress Bar Container */
+.skill-track {
+  position: relative;
+  height: 12px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+/* Actual Progress Bar */
+.skill-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+}
+
+.skill-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  filter: blur(4px);
+  opacity: 0.5;
+}

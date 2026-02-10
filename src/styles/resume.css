@@ -1,0 +1,69 @@
+.resume-section {
+    position: relative;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+
+.resume-container {
+    max-width: fit-content;
+    width: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 20px;
+    padding: 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.resume-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.resume-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(189, 52, 254, 0.3);
+}
+
+.resume-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(189, 52, 254, 0.5);
+}
+
+.download-icon {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .resume-container {
+        padding: 30px 20px;
+    }
+}

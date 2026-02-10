@@ -1,0 +1,43 @@
+/* SectionSeparator.css */
+.section-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    opacity: 0.8;
+}
+
+.separator-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+    opacity: 0.5;
+    border-radius: 2px;
+}
+
+.separator-icon {
+    margin: 0 20px;
+    color: var(--accent-blue);
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 8px var(--accent-purple));
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
