@@ -41,7 +41,7 @@ export default function About() {
 
   return (
     <section id="About" ref={sectionRef} className="about">
-      {/* <h2><span className="text-gradient">About Me</span></h2> */}
+      <h2><span className="text-gradient">About Me</span></h2>
 
       {/* L-shape wrapping content */}
       <div className="about-wrapper">

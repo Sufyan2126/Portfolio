@@ -64,13 +64,13 @@ export default function Projects() {
 
   return (
     <section id="Projects" className="projects">
-      {/* <motion.h2
+      <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <span className="text-gradient">Projects</span>
-      </motion.h2> */}
+      </motion.h2>
 
       <div className="carousel-container-vertical">
         <div className="carousel-content-wrapper">

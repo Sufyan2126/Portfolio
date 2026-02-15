@@ -92,9 +92,9 @@ const Skills = () => {
   return (
     <section id="Skills" ref={sectionRef} className="skills">
       <div className="container" style={{ margin: '0 auto', maxWidth: '1200px', padding: '0 20px' }}>
-        {/* <div className="skills-header">
+        <div className="skills-header">
           <h2><span className="text-gradient">Skills</span></h2>
-        </div> */}
+        </div>
 
         <div ref={skillsRef} className="skill-grid-circles">
           {skills.map((skill) => (
