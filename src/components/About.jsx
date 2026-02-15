@@ -1,18 +1,8 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
 import "../styles/about.css";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 export default function About() {
-  const ref = useRef();
-
-  useEffect(() => {
-    gsap.to(ref.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power2.out",
-    });
-  }, []);
+  const ref = useScrollAnimation();
 
   return (
     <section id="About" ref={ref} className="about">

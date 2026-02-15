@@ -1,6 +1,7 @@
 // education.jsx
 import { FaGraduationCap, FaSchool } from "react-icons/fa";
 import "../styles/education.css";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 export default function Education() {
   const educationData = [
@@ -24,8 +25,10 @@ export default function Education() {
     },
   ];
 
+  const ref = useScrollAnimation();
+
   return (
-    <section id="Education" className="education">
+    <section id="Education" className="education" ref={ref}>
       <h2><span className="text-gradient">Education</span></h2>
       <div className="education-grid">
         {educationData.map((edu, index) => (

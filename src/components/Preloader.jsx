@@ -8,7 +8,7 @@ export default function Preloader({ onComplete }) {
 
   useEffect(() => {
     if (count < 100) {
-      const timer = setTimeout(() => setCount(count + 1), 20);
+      const timer = setTimeout(() => setCount(count + 1), 15);
       return () => clearTimeout(timer);
     } else {
       // Exit Animation

@@ -6,11 +6,14 @@ import {
 } from "react-icons/fa";
 import "../styles/getInTouch.css";
 import resume from "../assets/resume.pdf";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 
 export default function GetInTouch() {
+  const ref = useScrollAnimation();
+
   return (
-    <section id="getInTouch" className="contact-section">
+    <section id="getInTouch" className="contact-section" ref={ref}>
       <h1 className="contact-heading">Get In <span className="text-gradient">Touch</span></h1>
 
       <div className="contact-icons-wrapper">

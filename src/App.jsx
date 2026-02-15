@@ -26,35 +26,37 @@ export default function App() {
   return (
     <>
       <Suspense fallback={null}>
-        {/* <Background3D /> */}
+        <Background3D />
       </Suspense>
-      {loading ? (
-        <Preloader onComplete={() => setLoading(false)} />
-      ) : (
-        <div>
-          <Navbar />
-          <Hero />
+      {
+        loading ? (
+          <Preloader onComplete={() => setLoading(false)
+          } />
+        ) : (
+          <div>
+            <Navbar />
+            <Hero />
 
-          <SectionSeparator />
+            <SectionSeparator />
 
-          <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-white/50">Loading...</div>}>
-            <About />
-            <Resume />
-            <SectionSeparator />
-            <Education />
-            <SectionSeparator />
-            <Skills />
-            <SectionSeparator />
-            <Projects />
-            <SectionSeparator />
-            <Certifications />
-            <SectionSeparator />
-            <GetInTouch />
-            <SectionSeparator />
-            <Contact />
-          </Suspense>
-        </div>
-      )}
+            <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-white/50">Loading...</div>}>
+              <About />
+              <Resume />
+              <SectionSeparator />
+              <Education />
+              <SectionSeparator />
+              <Skills />
+              <SectionSeparator />
+              <Projects />
+              <SectionSeparator />
+              <Certifications />
+              <SectionSeparator />
+              <GetInTouch />
+              <SectionSeparator />
+              <Contact />
+            </Suspense>
+          </div>
+        )}
     </>
   );
 }
