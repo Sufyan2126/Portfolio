@@ -12,8 +12,10 @@
 .separator-line {
     flex: 1;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
-    opacity: 0.5;
+    background: linear-gradient(90deg, rgba(0, 191, 255, 0.1), var(--accent-blue), rgba(0, 191, 255, 0.1));
+    /* Reduced transparency at ends */
+    opacity: 0.8;
+    /* Increased opacity */
     border-radius: 2px;
 }
 

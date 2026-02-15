@@ -1,17 +1,33 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaDatabase,
+  FaNodeJs, // Leaving this if needed later
+  FaChartBar, // For PowerBI fallback
+  FaCloud, // For NetSuite fallback
+  FaFileExcel // For Excel
+} from "react-icons/fa";
+import {
+  SiTailwindcss
+} from "react-icons/si";
 import "../styles/skills.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
-  { name: 'ReactJS', level: 95 },
-  { name: 'PowerBI', level: 85 },
-  { name: 'SQL', level: 80 },
-  { name: 'JavaScript', level: 90 },
-  { name: 'SuiteScript', level: 75 },
-  { name: 'TailwindCSS', level: 92 },
+  { name: 'ReactJS', level: 95, icon: <FaReact color="#61DAFB" /> },
+  { name: 'PowerBI', level: 85, icon: <FaChartBar color="#F2C811" /> },
+  { name: 'SQL', level: 80, icon: <FaDatabase color="#00758F" /> },
+  { name: 'JavaScript', level: 90, icon: <FaJs color="#F7DF1E" /> },
+  { name: 'SuiteScript', level: 75, icon: <FaCloud color="#000000" /> }, // Fallback icon
+  { name: 'TailwindCSS', level: 92, icon: <SiTailwindcss color="#38B2AC" /> },
+  { name: 'HTML', level: 95, icon: <FaHtml5 color="#E34F26" /> },
+  { name: 'Excel', level: 85, icon: <FaFileExcel color="#217346" /> },
 ];
 
 const Skills = () => {
@@ -20,72 +36,53 @@ const Skills = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate skill items and their progress bars
       const items = skillsRef.current?.querySelectorAll('.skill-item');
 
       items?.forEach((item, index) => {
-        if (index >= skills.length) return;
+        const circle = item.querySelector('.progress-ring__circle--progress');
+        const percent = skills[index].level;
+        const radius = circle.r.baseVal.value;
+        const circumference = radius * 2 * Math.PI;
 
-        const level = skills[index].level;
+        // Set initial state
+        gsap.set(circle, { strokeDasharray: `${circumference} ${circumference}`, strokeDashoffset: circumference });
 
-        // Actually my CSS structure is .skill-track > .skill-bar (the fill)
-        // Let's ensure the selector matches the markup below.
+        const offset = circumference - (percent / 100) * circumference;
 
-        const bar = item.querySelector('.skill-bar');
-        const glow = item.querySelector('.skill-glow');
+        // Animate Circle
+        gsap.to(circle, {
+          strokeDashoffset: offset,
+          duration: 2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top bottom',
+          },
+        });
 
-        // Animate progress bars
-        if (bar) {
-          gsap.fromTo(
-            bar,
-            { width: '0%' },
-            {
-              width: `${level}%`,
-              duration: 1.5,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: item,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse',
-              },
-            }
-          );
-        }
+        // Item Entrance Animation REMOVED for debugging/visibility reliability
+        gsap.set(item, { opacity: 1, y: 0 });
 
-        if (glow) {
-          gsap.fromTo(
-            glow,
-            { width: '0%' },
-            {
-              width: `${level}%`,
-              duration: 1.5,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: item,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse',
-              },
-            }
-          );
-        }
-
-        // Animate skill item entrance
+        /*
         gsap.fromTo(
           item,
-          { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
+          { opacity: 0, y: 50 },
           {
             opacity: 1,
-            x: 0,
-            duration: 0.6,
+            y: 0,
+            duration: 0.8,
             delay: index * 0.1,
-            ease: 'power3.out',
+            ease: 'back.out(1.7)',
             scrollTrigger: {
-              trigger: skillsRef.current, // Trigger when grid enters
-              start: 'top 80%',
-              toggleActions: 'play none none reverse',
+              trigger: skillsRef.current,
+              start: 'top bottom-=100', 
             },
+            onComplete: () => {
+               gsap.set(item, { opacity: 1, clearProps: "transform" }); 
+            }
           }
         );
+        */
       });
     }, sectionRef);
 
@@ -93,45 +90,52 @@ const Skills = () => {
   }, []);
 
   return (
-    <section
-      id="Skills"
-      ref={sectionRef}
-      className="skills"
-    >
-
-
+    <section id="Skills" ref={sectionRef} className="skills">
       <div className="container" style={{ margin: '0 auto', maxWidth: '1200px', padding: '0 20px' }}>
-        <div className="skills-header">
-          <h2>
-            <span className="text-gradient">Skills</span>
-          </h2>
-        </div>
+        {/* <div className="skills-header">
+          <h2><span className="text-gradient">Skills</span></h2>
+        </div> */}
 
-        <div ref={skillsRef} className="skill-grid">
+        <div ref={skillsRef} className="skill-grid-circles">
           {skills.map((skill) => (
-            <div key={skill.name} className="skill-item group">
-              <div className="skill-header-row">
-                <span className="skill-name">
-                  {skill.name}
-                </span>
-                <span className="skill-percent">
-                  {skill.level}%
-                </span>
+            <div key={skill.name} className="skill-item">
+              <div className="skill-circle-container">
+                <svg
+                  className="progress-ring"
+                  viewBox="0 0 120 120"
+                >
+                  <circle
+                    className="progress-ring__circle--track"
+                    stroke="rgba(255,255,255,0.1)"
+                    strokeWidth="8"
+                    fill="transparent"
+                    r="52"
+                    cx="60"
+                    cy="60"
+                  />
+                  <circle
+                    className="progress-ring__circle--progress"
+                    stroke="var(--accent-blue)"
+                    strokeWidth="8"
+                    fill="transparent"
+                    r="52"
+                    cx="60"
+                    cy="60"
+                    strokeLinecap="round"
+                    style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
+                  />
+                </svg>
+
+                <div className="skill-icon">
+                  {skill.icon}
+                </div>
               </div>
-              <div className="skill-track">
-                {/* Glow effect */}
-                <div
-                  className="skill-glow"
-                />
-                <div
-                  className="skill-bar"
-                />
-              </div>
+
+              <h3 className="skill-name-circle">{skill.name}</h3>
+              <span className="skill-percent-text">{skill.level}%</span>
             </div>
           ))}
         </div>
-
-
       </div>
     </section>
   );

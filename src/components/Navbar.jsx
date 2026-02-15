@@ -64,7 +64,7 @@ export default function Navbar() {
           <FaCertificate className="nav-icon" /> Certifications
         </li>
 
-        <li onClick={() => handleClick("getInTouch")}>
+        <li onClick={() => handleClick("Contact")}>
           <FaEnvelope className="nav-icon" /> Contact
         </li>
       </ul>

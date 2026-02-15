@@ -105,7 +105,7 @@ export default function Certifications() {
 
     return (
         <section id="certifications" className="certifications" ref={containerRef}>
-            <h2><span className="text-gradient">Certifications</span></h2>
+            {/* <h2><span className="text-gradient">Certifications</span></h2> */}
 
             <div className="certifications-grid">
                 {certificationsData.map((cert, index) => (

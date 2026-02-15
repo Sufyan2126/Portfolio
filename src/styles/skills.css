@@ -40,83 +40,153 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Skill Grid */
-.skill-grid {
+/* Skill Grid - Circular */
+.skill-grid-circles {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  max-width: 900px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .skill-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  justify-items: center;
 }
 
 /* Skill Item */
 .skill-item {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  /* background: var(--glass-bg); */
-  /* Removed background to match user snippet style more closely or can keep if needed */
-  padding: 10px;
-  border-radius: 8px;
-  opacity: 0;
-  /* Initial state for animation */
-}
-
-.skill-item:hover .skill-name {
-  color: var(--accent-blue);
-}
-
-/* Name + Percent Row */
-.skill-header-row {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  gap: 8px;
+  background: transparent;
+  /* Clean look */
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  width: 100%;
+  max-width: 140px;
+  /* Reduced further */
+  transition: transform 0.3s ease;
 }
 
-.skill-name {
+.skill-item:hover {
+  transform: translateY(-5px);
+  /* box-shadow: 0 10px 30px rgba(0, 191, 255, 0.2); */
+  /* Removed shadow for cleaner look */
+  background: rgba(255, 255, 255, 0.03);
+  /* Subtle hover bg */
+}
+
+/* Circle Container */
+.skill-circle-container {
+  position: relative;
+  width: 80px;
+  /* Reduced from 100px */
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SVG Circles - Scaled via container/viewBox */
+.progress-ring {
+  width: 100%;
+  height: 100%;
+}
+
+.progress-ring__circle--track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05);
+  /* Softer track */
+}
+
+.progress-ring__circle--progress {
+  fill: none;
+  filter: drop-shadow(0 0 2px var(--accent-blue));
+  /* Reduced glow */
+}
+
+/* Icon in Center */
+.skill-icon {
+  position: absolute;
+  font-size: 1.8rem;
+  /* Reduced */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+/* Text Below */
+.skill-name-circle {
+  font-size: 0.9rem;
+  /* Reduced */
   font-weight: 500;
   color: var(--text-primary);
-  transition: color 0.3s ease;
+  opacity: 0.9;
+  margin: 0;
+  text-align: center;
 }
 
-.skill-percent {
+.skill-percent-text {
+  font-size: 0.75rem;
   color: var(--text-secondary);
-  font-size: 0.875rem;
+  /* More subtle */
+  font-weight: 400;
 }
 
-/* Progress Bar Container */
-.skill-track {
-  position: relative;
-  height: 12px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.1);
-  overflow: hidden;
+/* Responsive */
+@media (max-width: 768px) {
+  .skill-grid-circles {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+  }
+
+  .skill-item {
+    padding: 5px;
+    border-radius: 8px;
+  }
+
+  .skill-circle-container {
+    width: 50px;
+    /* Small mobile size */
+    height: 50px;
+  }
+
+  .skill-icon {
+    font-size: 1.1rem;
+  }
+
+  .skill-name-circle {
+    font-size: 0.65rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  .skill-percent-text {
+    font-size: 0.6rem;
+    display: none;
+    /* Hide percentage on mobile for cleaner look if very small */
+  }
 }
 
-/* Actual Progress Bar */
-.skill-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  border-radius: 9999px;
-  background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-}
+@media (max-width: 480px) {
+  .skill-grid-circles {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    max-width: 100%;
+  }
 
-.skill-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  border-radius: 9999px;
-  background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-  filter: blur(4px);
-  opacity: 0.5;
+  .skill-circle-container {
+    width: 45px;
+    height: 45px;
+  }
+
+  .skill-icon {
+    font-size: 1rem;
+  }
+
+  .skill-name-circle {
+    font-size: 0.55rem;
+  }
 }

@@ -12,13 +12,27 @@ export default function Preloader({ onComplete }) {
       return () => clearTimeout(timer);
     } else {
       // Exit Animation
-      gsap.to(loaderRef.current, {
-        opacity: 0,
-        y: -50,
-        duration: 0.8,
-        ease: "power3.inOut",
-        onComplete: onComplete
-      });
+      const ctx = gsap.context(() => {
+        gsap.to(loaderRef.current, {
+          opacity: 0,
+          y: -50,
+          duration: 0.8,
+          ease: "power3.inOut",
+          onComplete: () => {
+            if (onComplete) onComplete();
+          }
+        });
+      }, loaderRef);
+
+      // Backup safety call
+      const safetyTimer = setTimeout(() => {
+        if (onComplete) onComplete();
+      }, 1000);
+
+      return () => {
+        clearTimeout(safetyTimer);
+        ctx.revert();
+      };
     }
   }, [count, onComplete]);
 

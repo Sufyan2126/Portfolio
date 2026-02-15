@@ -90,7 +90,7 @@ export default function Hero() {
 
             </div>
 
-            <div style={{ fontSize: "2.9rem", fontWeight: "bold" }}>
+            <div style={{ fontSize: "3.5rem", fontWeight: "bold" }}>
               I'm <span>Sufyan</span>
             </div>
           </motion.h1>
@@ -109,25 +109,8 @@ export default function Hero() {
         {/* RIGHT */}
         <motion.div className="hero-right" variants={itemVariants}>
           <div className="profile-orbit-container">
-            {/* Orbit Circles */}
-            <div className="hero-orbit-circle h-orbit-2" />
-
-            {/* Orbiting Elements */}
-            {['React', 'Node', 'Next.js', 'TS'].map((tech, index) => (
-              <div
-                key={tech}
-                className="hero-orbiting-tech animate-orbit-desktop"
-                style={{
-                  animationDelay: `${index * -6.25}s`, // 25s / 4 items = 6.25s spacing
-                }}
-              >
-                <div className="hero-tech-icon">
-                  {tech}
-                </div>
-              </div>
-            ))}
-
-            <div className="profile-circle">
+            {/* Only Profile Image */}
+            <div className="profile-img-container">
               <img src={profileImg} alt="Sufyan" />
             </div>
           </div>

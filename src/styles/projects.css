@@ -8,143 +8,205 @@
 .projects h2 {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   font-weight: 700;
   color: var(--text-primary);
   text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
-  /* Blue glow */
 }
 
-/* 🎯 CONTROLLED GRID - RESTORED */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 25px;
-}
-
-/* Each card spans 2 columns */
-.project-card {
-  grid-column: span 2;
-  /* ✨ REMOVED CARD STYLING ✨ */
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  /* Remove padding since no border */
+/* SPLIT LAYOUT CONTAINER */
+.project-split-layout {
   display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-}
-
-/* KEEP HOVER EFFECT BUT ONLY SCALE, NO SHADOW/BORDER */
-.project-card:hover {
-  transform: translateY(-6px);
-  /* Removed border-color and box-shadow */
-}
-
-/* 🔥 CENTER THE LAST TWO CARDS */
-.project-card:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
-.project-card:nth-child(5) {
-  grid-column: 4 / span 2;
-}
-
-/* IMAGE */
-.project-image {
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  /* Big gap for cleaner look */
   width: 100%;
-  height: 180px;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 16px;
-  /* Added nice shadow to image itself since card has none */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  margin-bottom: 50px;
 }
 
-.project-image img {
+/* LEFT CONTENT (BIG) */
+.project-info {
+  flex: 1;
+  text-align: left;
+}
+
+.project-info h3 {
+  font-size: 3rem;
+  /* Much bigger title */
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  line-height: 1.1;
+  background: linear-gradient(90deg, #fff, #a2a2a2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-info p {
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  /* Bigger text */
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 90%;
+}
+
+/* TECH BADGES */
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.tech-badge {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent-blue);
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 191, 255, 0.15);
+}
+
+/* BUTTON */
+.view-project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--accent-blue);
+  color: #000;
+  border: none;
+  font-weight: 700;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+}
+
+.view-project-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 191, 255, 0.5);
+}
+
+/* RIGHT IMAGE (BIG) */
+.project-preview {
+  flex: 1.2;
+  /* Image takes slightly more space */
+  height: 500px;
+  /* Bigger height */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s ease;
 }
 
-/* CONTENT */
-.project-content h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--text-primary);
+.project-split-layout:hover .project-preview img {
+  transform: scale(1.03);
 }
 
-.project-content p {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.project-tech {
+/* CONTROLS BELOW */
+.carousel-controls {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 12px 0;
-}
-
-.tech-tag {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--accent-blue);
-  padding: 4px 12px;
-  border-radius: 14px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border: 1px solid rgba(0, 191, 255, 0.3);
-}
-
-.github-btn {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  margin: 16px auto 0;
-  /* 👈 centers the button */
-  padding: 8px 16px;
-  background: transparent;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
   color: var(--text-primary);
-  border: 1px solid var(--text-primary);
-  border-radius: 20px;
-  font-size: 0.8rem;
-  text-decoration: none;
-  width: fit-content;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.4rem;
+}
+
+.nav-btn:hover {
+  background: var(--text-primary);
+  color: #000;
+  border-color: var(--text-primary);
+}
+
+.dots-container {
+  display: flex;
+  gap: 15px;
+}
+
+.dot-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.github-btn:hover {
-  transform: translateY(-2px);
-  background: var(--text-primary);
-  color: #000;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+.dot-indicator.active {
+  background: var(--accent-blue);
+  transform: scale(1.3);
 }
 
-
-/* 📱 TABLET */
+/* 📱 RESPONSIVE */
 @media (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .project-split-layout {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
   }
 
-  .project-card,
-  .project-card:nth-child(4),
-  .project-card:nth-child(5) {
-    grid-column: auto;
+  .project-info {
+    text-align: center;
+  }
+
+  .project-info p {
+    margin: 0 auto 30px;
+  }
+
+  .project-tech-stack {
+    justify-content: center;
+  }
+
+  .project-preview {
+    width: 100%;
+    height: 350px;
+    flex: none;
   }
 }
 
-/* 📱 MOBILE */
 @media (max-width: 768px) {
   .projects {
-    padding: 50px 20px;
+    padding: 60px 20px;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .project-info h3 {
+    font-size: 2.2rem;
+  }
+
+  .project-preview {
+    height: 250px;
+  }
+
+  .nav-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
   }
 }

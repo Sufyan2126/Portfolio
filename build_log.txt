@@ -1,0 +1,29 @@
+
+> my-portfolio@0.0.0 build
+> vite build
+
+[36mvite v7.3.0 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32m✓[39m 1040 modules transformed.
+[31m✗[39m Build failed in 11.71s
+[31merror during build:
+[31msrc/components/Skills.jsx (13:2): "SiPowerbi" is not exported by "node_modules/react-icons/si/index.mjs", imported by "src/components/Skills.jsx".[31m
+file: [36mC:/Users/Admin/MyPortfolio/src/components/Skills.jsx:13:2[31m
+[33m
+11: } from "react-icons/fa";
+12: import {
+13:   SiPowerbi,
+      ^
+14:   SiTailwindcss,
+15:   SiNetsuite
+[31m
+    at getRollupError (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at error (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/parseAst.js:397:42)
+    at Module.error (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/node-entry.js:17022:16)
+    at Module.traceVariable (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/node-entry.js:17478:29)
+    at ModuleScope.findVariable (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/node-entry.js:15141:39)
+    at Identifier.bind (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/node-entry.js:5462:40)
+    at CallExpression.bind (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/node-entry.js:2825:28)
+    at CallExpression.bind (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/node-entry.js:12172:15)
+    at Property.bind (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/node-entry.js:2829:23)
+    at ObjectExpression.bind (file:///C:/Users/Admin/MyPortfolio/node_modules/rollup/dist/es/shared/node-entry.js:2825:28)[39m

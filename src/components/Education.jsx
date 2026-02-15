@@ -29,7 +29,7 @@ export default function Education() {
 
   return (
     <section id="Education" className="education" ref={ref}>
-      <h2><span className="text-gradient">Education</span></h2>
+      {/* <h2><span className="text-gradient">Education</span></h2> */}
       <div className="education-grid">
         {educationData.map((edu, index) => (
           <div className="education-card" key={index}>

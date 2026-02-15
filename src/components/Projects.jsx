@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { FaGithub, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../styles/projects.css";
 
 export default function Projects() {
@@ -51,54 +52,93 @@ export default function Projects() {
     },
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextProject = () => {
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevProject = () => {
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
   return (
     <section id="Projects" className="projects">
-      <motion.h2
+      {/* <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <span className="text-gradient">Projects</span>
-      </motion.h2>
+      </motion.h2> */}
 
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.title}
-            className="project-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-          >
-            <div className="project-image">
-              <img src={project.image} alt={project.title} />
-            </div>
-
-            <div className="project-content">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-
-              <div className="project-tech">
-                {project.tech.map((tech, i) => (
-                  <span key={i} className="tech-tag">
-                    {tech}
-                  </span>
-                ))}
+      <div className="carousel-container-vertical">
+        <div className="carousel-content-wrapper">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              className="project-split-layout"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              {/* Left Content */}
+              <div className="project-info">
+                <h3>{projects[currentIndex].title}</h3>
+                <p>{projects[currentIndex].description}</p>
+                <div className="project-tech-stack">
+                  {projects[currentIndex].tech.map((tech, i) => (
+                    <span key={i} className="tech-badge">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={projects[currentIndex].github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="view-project-btn"
+                >
+                  <FaGithub /> View Project
+                </a>
               </div>
 
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="github-btn"
-              >
-                <FaGithub /> View on GitHub
-              </a>
-            </div>
-          </motion.div>
-        ))}
+              {/* Right Image */}
+              <div className="project-preview">
+                <img
+                  src={projects[currentIndex].image}
+                  alt={projects[currentIndex].title}
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Controls Below */}
+        <div className="carousel-controls">
+          <button className="nav-btn" onClick={prevProject}>
+            <FaChevronLeft />
+          </button>
+
+          <div className="dots-container">
+            {projects.map((_, index) => (
+              <div
+                key={index}
+                className={`dot-indicator ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => setCurrentIndex(index)}
+              />
+            ))}
+          </div>
+
+          <button className="nav-btn" onClick={nextProject}>
+            <FaChevronRight />
+          </button>
+        </div>
       </div>
+
+      {/* Dots Indicator */}
+
     </section>
   );
 }
