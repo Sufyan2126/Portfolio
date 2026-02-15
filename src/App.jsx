@@ -30,8 +30,7 @@ export default function App() {
       </Suspense>
       {
         loading ? (
-          <Preloader onComplete={() => setLoading(false)
-          } />
+          <Preloader onComplete={() => setLoading(false)} />
         ) : (
           <div>
             <Navbar />
@@ -48,15 +47,16 @@ export default function App() {
               <Skills />
               <SectionSeparator />
               <Projects />
-              <SectionSeparator />
-              <Certifications />
+              {/* <SectionSeparator />
+              <Certifications /> */}
               <SectionSeparator />
               <GetInTouch />
               <SectionSeparator />
               <Contact />
             </Suspense>
           </div>
-        )}
+        )
+      }
     </>
   );
 }

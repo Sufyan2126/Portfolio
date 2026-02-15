@@ -65,6 +65,7 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
+        {/* CENTERED CONTENT */}
         {/* LEFT */}
         <motion.div className="hero-left" variants={itemVariants}>
           <motion.h1>

@@ -1,112 +1,169 @@
 .contact {
-  padding: 50px 50px;
+  padding: 80px 40px 40px;
   color: var(--text-primary);
-  max-width: 1200px;
+  max-width: 1400px;
+  /* Wider for the big text */
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 60px;
+  width: 100%;
 }
 
 .contact-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  gap: 80px;
 }
 
-.social-links {
+/* --- FOOTER TOP: SPLIT LAYOUT --- */
+.footer-top {
   display: flex;
-  gap: 20px;
-}
-
-/* Divider above footer */
-.footer-hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-  margin: 40px 0;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* Align bottom */
   width: 100%;
 }
 
-
-.social-link {
+/* LEFT: TITLE */
+.footer-left {
   display: flex;
+  flex-direction: column;
+}
+
+.footer-title {
+  font-size: 6rem;
+  /* BIG TEXT */
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #fff, rgba(255, 255, 255, 0.5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* RIGHT: COPYRIGHT */
+.footer-right {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 50%;
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  gap: 15px;
+  padding-bottom: 10px;
+  /* Align with text baseline visually */
 }
 
-.social-link:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--accent-blue);
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px var(--accent-blue);
-  color: var(--accent-blue);
-}
-
-.footer-text {
+.copyright-icon {
+  font-size: 5rem;
+  /* BIG C ICON */
+  color: var(--accent-purple);
   opacity: 0.8;
 }
 
-.footer-text p {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 1px;
+.copyright-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   color: var(--text-secondary);
 }
 
-/* Tablet */
+.copyright-text .year {
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+/* --- FOOTER BOTTOM: MARQUEE --- */
+.footer-marquee {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+  margin-top: 40px;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  /* We'll animate this via GSAP */
+  width: fit-content;
+}
+
+.marquee-track span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 40px;
+  /* Spacing between items */
+  letter-spacing: 1px;
+}
+
+.separator {
+  color: var(--accent-blue);
+}
+
+/* --- RESPONSIVE --- */
+
+/* Tablet & Mobile */
 @media (max-width: 1024px) {
-  .contact {
-    padding: 50px 40px;
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+  }
+
+  .footer-right {
+    align-items: flex-start;
+    flex-direction: row;
+    align-self: flex-start;
+  }
+
+  .copyright-icon {
+    font-size: 4rem;
+  }
+
+  .copyright-text {
+    align-items: flex-start;
+    margin-left: 15px;
   }
 }
 
-/* Mobile Large */
 @media (max-width: 768px) {
   .contact {
-    padding: 40px 20px;
+    padding: 60px 20px 30px;
   }
 
-  .social-links {
-    gap: 16px;
+  .footer-title {
+    font-size: 3.5rem;
   }
 
-  .social-link {
-    width: 45px;
-    height: 45px;
+  .footer-right {
+    margin-top: 20px;
   }
 
-  .footer-text p {
+  .copyright-icon {
+    font-size: 3rem;
+  }
+
+  .marquee-track span {
     font-size: 1rem;
-  }
-}
-
-/* Mobile Small */
-@media (max-width: 480px) {
-  .contact {
-    padding: 30px 15px;
-  }
-
-  .social-links {
-    gap: 12px;
-  }
-
-  .social-link {
-    width: 40px;
-    height: 40px;
-  }
-
-  .footer-text p {
-    font-size: 0.95rem;
+    margin: 0 20px;
   }
 }

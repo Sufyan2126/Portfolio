@@ -1,52 +1,69 @@
-import { FaLinkedin, FaGithub, FaFileAlt } from "react-icons/fa";
-import resumePDF from "../assets/resume.pdf"; // make sure this path is correct
+import { useRef, useEffect } from "react";
+import { FaRegCopyright } from "react-icons/fa";
+import gsap from "gsap";
 import "../styles/contact.css";
 
 export default function Contact() {
-  return (
-    <footer id="" className="contact">
+  const marqueeRef = useRef(null);
 
-      {/* Divider line */}
+  useEffect(() => {
+    const marqueeText = marqueeRef.current;
+
+    // Clone text for seamless loop
+    // We can just duplicate the content in JSX or use GSAP to repeat
+    // Simple GSAP tween for infinite scrolling
+    const ctx = gsap.context(() => {
+      gsap.to(".marquee-track", {
+        xPercent: -50, // Move half the width (since we double the text)
+        ease: "none",
+        duration: 20, // Adjust speed
+        repeat: -1,
+      });
+    }, marqueeRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <footer id="Contact" className="contact">
       <hr className="footer-hr" />
 
       <div className="contact-content">
 
-        <div className="footer-text">
-          <p>Designed & Developed by Sufyan</p>
+        {/* TOP SECTION: Split Layout */}
+        <div className="footer-top">
+
+          {/* LEFT: Big Title */}
+          <div className="footer-left">
+            <h2 className="footer-title">SOFTWARE</h2>
+            <h2 className="footer-title">DEVELOPER</h2>
+          </div>
+
+          {/* RIGHT: Copyright */}
+          <div className="footer-right">
+            <FaRegCopyright className="copyright-icon" />
+            <div className="copyright-text">
+              <span>Reserved</span>
+              <span>Rights</span>
+              <span className="year">2026</span>
+            </div>
+          </div>
+
         </div>
 
-        <div className="social-links">
-          {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/sufyan-qazi-12a9222b9/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin size={24} />
-          </a>
-
-          {/* GitHub */}
-          <a
-            href="https://github.com/Sufyan2126"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-            aria-label="GitHub"
-          >
-            <FaGithub size={24} />
-          </a>
-
-          {/* Resume Download */}
-          <a
-            href={resumePDF}
-            download="resume.pdf"
-            className="social-link"
-            aria-label="Download Resume"
-          >
-            <FaFileAlt size={22} />
-          </a>
+        {/* BOTTOM SECTION: Scrolling Marquee */}
+        <div className="footer-marquee" ref={marqueeRef}>
+          <div className="marquee-track">
+            {/* Repeated text for seamless loop */}
+            <span>DESIGNED AND DEVELOPED BY SQCODES</span>
+            <span className="separator">•</span>
+            <span>DESIGNED AND DEVELOPED BY SQCODES</span>
+            <span className="separator">•</span>
+            <span>DESIGNED AND DEVELOPED BY SQCODES</span>
+            <span className="separator">•</span>
+            <span>DESIGNED AND DEVELOPED BY SQCODES</span>
+            <span className="separator">•</span>
+          </div>
         </div>
 
       </div>

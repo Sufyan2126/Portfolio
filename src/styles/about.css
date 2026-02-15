@@ -81,6 +81,11 @@ body {
   color: var(--text-secondary);
 }
 
+.highlight {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
 /* Tablet */
 @media (max-width: 1024px) {
   .about {
