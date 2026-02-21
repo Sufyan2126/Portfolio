@@ -1,5 +1,4 @@
 import { useEffect, useState, Suspense, lazy } from "react";
-import Background3D from "./components/Background3D";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Preloader from "./components/Preloader";
@@ -41,9 +40,7 @@ export default function App() {
 
   return (
     <>
-      <Suspense fallback={null}>
-        <Background3D />
-      </Suspense>
+
       {
         loading ? (
           <Preloader onComplete={() => setLoading(false)} />
