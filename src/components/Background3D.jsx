@@ -39,6 +39,7 @@ export default function Background3D() {
       width: '100%',
       height: '100%',
       zIndex: -1,
+      pointerEvents: 'none',
       backgroundColor: '#050505', // Very dark bg
       backgroundImage: 'radial-gradient(circle at 50% 50%, #1a0b2e 0%, #000000 100%)' // Deep purple-ish gradient
     }}>
