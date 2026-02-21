@@ -4,9 +4,10 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
-    margin: 40px auto;
-    opacity: 0.8;
+    max-width: 300px;
+    margin: 40px auto 80px auto;
+    /* Increased bottom margin */
+    opacity: 0.6;
 }
 
 .separator-line {
@@ -20,11 +21,11 @@
 }
 
 .separator-icon {
-    margin: 0 20px;
+    margin: 0 15px;
     color: var(--accent-blue);
-    font-size: 1.5rem;
-    filter: drop-shadow(0 0 8px var(--accent-purple));
-    animation: pulse 2s infinite;
+    font-size: 1rem;
+    filter: drop-shadow(0 0 5px var(--accent-purple));
+    animation: pulse 3s infinite;
 }
 
 @keyframes pulse {

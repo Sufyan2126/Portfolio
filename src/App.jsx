@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // Lazy load below-the-fold components
+const SectionSeparator = lazy(() => import("./components/SectionSeparator"));
 const About = lazy(() => import("./components/About"));
 const Skills = lazy(() => import("./components/Skills"));
 const Projects = lazy(() => import("./components/Projects"));
@@ -49,22 +50,13 @@ export default function App() {
             <Navbar />
             <Hero />
 
-
-
             <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-white/50">Loading...</div>}>
+              <SectionSeparator />
               <About />
               <Resume />
-
               <Education />
-
               <Skills />
-
               <Projects />
-              {/* <SectionSeparator />
-              <Certifications /> */}
-              {/* <SectionSeparator />
-              <GetInTouch /> */}
-
               <Contact />
             </Suspense>
           </div>
