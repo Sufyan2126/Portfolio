@@ -15,10 +15,7 @@ const Skills = lazy(() => import("./components/Skills"));
 const Projects = lazy(() => import("./components/Projects"));
 const Contact = lazy(() => import("./components/Contact"));
 const Education = lazy(() => import("./components/Education"));
-// const GetInTouch = lazy(() => import("./components/getInTouch"));
 const Resume = lazy(() => import("./components/Resume"));
-const Certifications = lazy(() => import("./components/certifications"));
-
 export default function App() {
   const [loading, setLoading] = useState(true);
 

@@ -8,7 +8,6 @@ import {
   FaTools,
   FaProjectDiagram,
   FaEnvelope,
-  FaCertificate,
 } from "react-icons/fa";
 import "../styles/navbar.css";
 
@@ -58,10 +57,6 @@ export default function Navbar() {
         </li>
         <li onClick={() => handleClick("Projects")}>
           <FaProjectDiagram className="nav-icon" /> Projects
-        </li>
-
-        <li onClick={() => handleClick("certifications")}>
-          <FaCertificate className="nav-icon" /> Certifications
         </li>
 
         <li onClick={() => handleClick("Contact")}>
