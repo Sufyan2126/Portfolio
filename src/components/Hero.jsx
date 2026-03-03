@@ -2,13 +2,12 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import "../styles/hero.css";
-import profileImg from "../assets/New folder/download.png";
+import profileImg from "../assets/profile.png";
 
 export default function Hero() {
   const roles = [
     "Netsuite Consultant",
     "Frontend Developer",
-    "Business Analyst",
   ];
 
   const [text, setText] = useState("");

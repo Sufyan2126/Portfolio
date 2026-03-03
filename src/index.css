@@ -1,25 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&family=Public+Sans:wght@700;900&display=swap');
+
 :root {
-  --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --accent-purple: #bd34fe;
-  --accent-blue: #00bfff;
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  --backdrop-blur: 10px;
+  --text-primary: #000000;
+  --text-secondary: #222222;
+
+  /* Neobrutalist Colors from user */
+  --bg-yellow: #facc15;
+  --bg-orange: #f97316;
+  --bg-cyan: #67e8f9;
+  --bg-pink: #f472b6;
+  --bg-white: #ffffff;
+
+  --brutal-border: 4px solid #000000;
+  --brutal-border-thick: 8px solid #000000;
+  --brutal-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
 }
 
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: #000000;
+  background-color: var(--bg-white);
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #000000;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 700;
+  background-color: var(--bg-white);
   color: var(--text-primary);
   overflow-x: hidden;
   width: 100%;
@@ -31,17 +39,25 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 900;
   color: var(--text-primary);
+  text-transform: uppercase;
+  margin: 0;
 }
 
 p {
   color: var(--text-secondary);
+  font-weight: 700;
 }
 
-a {
+a,
+button {
   text-decoration: none;
   color: inherit;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 * {
@@ -49,23 +65,32 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Scrollbar — desktop only */
+/* Micro-Interactions: Active translate and shadow-none */
+button:active,
+a:active,
+.brutal-btn:active,
+.clickable-card:active {
+  transform: translate(4px, 4px) !important;
+  box-shadow: none !important;
+}
+
+/* Scrollbar */
 @media (min-width: 768px) {
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 12px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #000;
+    background: var(--bg-white);
+    border-left: var(--brutal-border);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--accent-purple);
-    border-radius: 4px;
+    background: var(--bg-pink);
+    border: var(--brutal-border);
   }
 }
 
-/* Hide scrollbar on mobile to prevent the blue line glitch */
 @media (max-width: 767px) {
   ::-webkit-scrollbar {
     display: none;
@@ -74,15 +99,15 @@ a {
   html,
   body {
     scrollbar-width: none;
-    /* Firefox */
     -ms-overflow-style: none;
-    /* IE/Edge */
   }
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #ffffff 30%, var(--accent-blue), var(--accent-purple));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: var(--bg-yellow);
+  color: var(--text-primary);
+  padding: 0 8px;
+  display: inline-block;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow);
 }

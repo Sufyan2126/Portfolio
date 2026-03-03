@@ -1,15 +1,10 @@
 .skills {
   padding: 80px 20px;
   width: 100%;
-  background: transparent;
+  background: var(--bg-white);
   position: relative;
   overflow: hidden;
 }
-
-/* Background Accents */
-
-
-
 
 /* Heading */
 .skills-header {
@@ -19,144 +14,140 @@
 
 .skills-subtitle {
   display: inline-block;
-  color: var(--accent-blue);
-  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-yellow);
+  border: var(--brutal-border);
+  padding: 4px 12px;
   margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
 }
 
 .skills h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 3rem;
   color: var(--text-primary);
   margin: 0;
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: var(--bg-pink);
+  color: var(--text-primary);
+  padding: 0 8px;
+  display: inline-block;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow);
+  transform: rotate(-2deg);
 }
 
 /* Skill Grid - Circular */
 .skill-grid-circles {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
   justify-items: center;
 }
 
-/* Skill Item */
+/* Skill Item Sticker */
 .skill-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  background: transparent;
-  /* Clean look */
-  padding: 10px;
-  border-radius: 15px;
-  border: none;
+  background: var(--bg-cyan);
+  /* Default pastel-pop */
+  padding: 20px;
+  border-radius: 1rem;
+  /* rounded-2xl requested: 1rem/1.5rem */
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow);
   width: 100%;
-  max-width: 140px;
-  /* Reduced further */
-  transition: transform 0.3s ease;
+  max-width: 180px;
 }
 
-.skill-item:hover {
-  transform: translateY(-5px);
-  /* box-shadow: 0 10px 30px rgba(0, 191, 255, 0.2); */
-  /* Removed shadow for cleaner look */
-  background: rgba(255, 255, 255, 0.03);
-  /* Subtle hover bg */
+/* Alternate sticker colors */
+.skill-item:nth-child(2n) {
+  background: var(--bg-pink);
+}
+
+.skill-item:nth-child(3n) {
+  background: var(--bg-yellow);
+}
+
+.skill-item:nth-child(4n) {
+  background: var(--bg-orange);
 }
 
 /* Circle Container */
 .skill-circle-container {
   position: relative;
   width: 80px;
-  /* Reduced from 100px */
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: var(--bg-white);
+  border-radius: 50%;
+  border: var(--brutal-border);
 }
 
 /* SVG Circles - Scaled via container/viewBox */
 .progress-ring {
   width: 100%;
   height: 100%;
-}
-
-.progress-ring__circle--track {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.05);
-  /* Softer track */
-}
-
-.progress-ring__circle--progress {
-  fill: none;
-  filter: drop-shadow(0 0 2px var(--accent-blue));
-  /* Reduced glow */
+  opacity: 0;
+  /* Removing the progress rings as they clash with solid simple stickers, but keep structure so layout doesn't break */
 }
 
 /* Icon in Center */
 .skill-icon {
   position: absolute;
-  font-size: 1.8rem;
-  /* Reduced */
+  font-size: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+  color: var(--text-primary);
 }
 
 /* Text Below */
 .skill-name-circle {
-  font-size: 0.9rem;
-  /* Reduced */
-  font-weight: 500;
+  font-size: 1.1rem;
   color: var(--text-primary);
-  opacity: 0.9;
-  margin: 0;
+  margin: 5px 0 0 0;
   text-align: center;
 }
 
 .skill-percent-text {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  /* More subtle */
-  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--bg-white);
+  padding: 2px 8px;
+  border: 2px solid #000;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .skill-grid-circles {
     grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
+    gap: 15px;
   }
 
   .skill-item {
-    padding: 5px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 1rem;
   }
 
   .skill-circle-container {
     width: 50px;
-    /* Small mobile size */
     height: 50px;
   }
 
   .skill-icon {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
 
   .skill-name-circle {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -164,29 +155,31 @@
   }
 
   .skill-percent-text {
-    font-size: 0.6rem;
     display: none;
-    /* Hide percentage on mobile for cleaner look if very small */
   }
 }
 
 @media (max-width: 480px) {
   .skill-grid-circles {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     max-width: 100%;
   }
 
+  .skill-item {
+    padding: 15px;
+  }
+
   .skill-circle-container {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
   }
 
   .skill-icon {
-    font-size: 1rem;
+    font-size: 1.8rem;
   }
 
   .skill-name-circle {
-    font-size: 0.55rem;
+    font-size: 1rem;
   }
 }

@@ -8,34 +8,18 @@ export default function Projects() {
     {
       title: "Typing Speed Test",
       description:
-        "React.js and CSS based application with real-time speed and accuracy tracking.",
+        "Typing Speed Web application with real-time speed and accuracy tracking.",
       image:
         "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
       tech: ["ReactJS", "MYSQL", "NodeJS", "CSS"],
       github: "https://github.com/Sufyan2126/typing-speed-test",
     },
-    {
-      title: "Expense Tracker",
-      description:
-        "Expense tracking app with authentication using React, Node.js, and MySQL.",
-      image:
-        "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=250&fit=crop",
-      tech: ["ReactJS", "CSS", "NodeJS"],
-      github: "https://github.com/Sufyan2126/expense-tracker-web/",
-    },
-    {
-      title: "Portfolio Dashboard",
-      description:
-        "Modern responsive portfolio with animations and clean UI.",
-      image:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop",
-      tech: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/Sufyan2126/developer-portfolio",
-    },
+
+
     {
       title: "LoopSnake",
       description:
-        "Analytics dashboard with charts and structured data presentation.",
+        "Retro-style Snake game with smooth movement and increasing difficulty.",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
       tech: ["React", "Charts"],
@@ -105,7 +89,10 @@ export default function Projects() {
               </div>
 
               {/* Right Image */}
-              <div className="project-preview">
+              <div
+                className="project-preview"
+                style={{ backgroundColor: projects[currentIndex].color || 'var(--bg-pink)' }}
+              >
                 <img
                   src={projects[currentIndex].image}
                   alt={projects[currentIndex].title}
