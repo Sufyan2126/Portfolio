@@ -2,6 +2,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { FaGithub, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../styles/projects.css";
+import g1 from "../assets/project/g1.png";
+import r1 from "../assets/project/r1.png";
+import t1 from "../assets/project/t1.png";
 
 export default function Projects() {
   const projects = [
@@ -9,8 +12,7 @@ export default function Projects() {
       title: "Typing Speed Test",
       description:
         "Typing Speed Web application with real-time speed and accuracy tracking.",
-      image:
-        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
+      image: t1,
       tech: ["ReactJS", "MYSQL", "NodeJS", "CSS"],
       github: "https://github.com/Sufyan2126/typing-speed-test",
     },
@@ -20,18 +22,16 @@ export default function Projects() {
       title: "LoopSnake",
       description:
         "Retro-style Snake game with smooth movement and increasing difficulty.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+      image: g1,
       tech: ["React", "Charts"],
       github: "https://github.com/Sufyan2126/MyPortfolio",
     },
     {
-      title: "MySchool Portal",
+      title: "Resume Optimizer",
       description:
-        "Information, Campus Life, and Testimonials.",
-      image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop",
-      tech: ["Tyescript", "TailwindCSS", "UI/UX"],
+        "Optimizes resumes and provides intelligent keyword suggestions.",
+      image: r1,
+      tech: ["ReactJS", "TailwindCSS", "NodeJS"],
       github: "https://github.com/Sufyan2126/MyPortfolio",
     },
   ];
