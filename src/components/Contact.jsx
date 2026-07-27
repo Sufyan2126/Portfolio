@@ -37,6 +37,9 @@ export default function Contact() {
           <div className="footer-left">
             <h2 className="footer-title">SOFTWARE</h2>
             <h2 className="footer-title">DEVELOPER</h2>
+            <a href="mailto:qazisufyan2005@gmail.com" className="contact-email">
+              qazisufyan2005@gmail.com
+            </a>
           </div>
 
           {/* RIGHT: Copyright */}
